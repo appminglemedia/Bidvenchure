@@ -1,10 +1,11 @@
 import 'package:bidvenchure_user/Config/Colors.dart';
 import 'package:bidvenchure_user/Controller/SearchResultController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class SearchResultPage extends StatelessWidget {
+  const SearchResultPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final SearchResultController searchResultController =

@@ -22,7 +22,7 @@ var pagePath = [
       transition: Transition.rightToLeft),
   GetPage(
       name: "/bottomNavBar",
-      page: () => BottomNavBar(),
+      page: () => const BottomNavBar(),
       transition: Transition.rightToLeft),
   GetPage(
       name: "/homePage",
@@ -30,7 +30,7 @@ var pagePath = [
       transition: Transition.rightToLeft),
   GetPage(
       name: "/searchResultPage",
-      page: () => SearchResultPage(),
+      page: () => const SearchResultPage(),
       transition: Transition.rightToLeft),
   GetPage(
       name: "/bidForm",

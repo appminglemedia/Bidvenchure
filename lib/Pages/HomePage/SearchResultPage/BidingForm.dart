@@ -144,7 +144,7 @@ class BidingForm extends StatelessWidget {
             value: value,
             child: Text(
               value,
-              style: TextStyle(color: blackColor),
+              style: const TextStyle(color: blackColor),
             ),
           );
         }).toList(),

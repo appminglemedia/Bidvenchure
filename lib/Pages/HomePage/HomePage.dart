@@ -1,6 +1,5 @@
 import 'package:bidvenchure_user/Config/Colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +19,16 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Icon(
+                  Icons.location_on,
+                  color: whiteColor,
+                  size: 18,
+                ),
+                SizedBox(
+                  width: 5,
+                ),
                 Text(
-                  "Current Location ",
+                  "New York, USA ",
                   style: TextStyle(
                       color: whiteColor,
                       fontSize: 12,
@@ -30,13 +37,15 @@ class HomePage extends StatelessWidget {
                 Icon(
                   Icons.arrow_drop_down_outlined,
                   color: whiteColor,
-                )
+                ),
+                // Text(
+                //   "New Yourk, USA ",
+                //   style: TextStyle(
+                //       color: whiteColor,
+                //       fontSize: 13,
+                //       fontWeight: FontWeight.w500),
+                // ),
               ],
-            ),
-            Text(
-              "New Yourk, USA ",
-              style: TextStyle(
-                  color: whiteColor, fontSize: 13, fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -182,20 +191,18 @@ class InviteCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 13),
                 SizedBox(
-                  width: 72,
+                  width: 80,
                   height: 32,
-                  child: FloatingActionButton(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    backgroundColor: const Color(0xff00F8FF),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all(const Color(0xff00F8FF))),
                     onPressed: onTap, // Use the passed onTap function here
                     child: const Text(
                       "INVITE",
                       style: TextStyle(
                           color: Colors.white, // Fixed the color reference
-                          fontSize: 12,
+                          fontSize: 10,
                           fontWeight: FontWeight.w400),
                     ),
                   ),

@@ -10,7 +10,7 @@ class SplashPage extends StatelessWidget {
     SplashController splashController = Get.put(SplashController());
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfffafafc),
       body: Center(
         child: Text(
           "BidVenchure",

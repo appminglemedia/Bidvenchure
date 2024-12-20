@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
+
+import '../../Controller/otpController.dart';
 
 class OtpPage extends StatelessWidget {
   const OtpPage({super.key});
@@ -11,13 +12,15 @@ class OtpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final OtpController otpController =
+        Get.put(OtpController()); // Initialize the controller
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xfffafafc),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xfffafafc),
         leading: IconButton(
           onPressed: () {
-            print("object");
             Get.back();
           },
           icon: const Icon(Icons.arrow_back),
@@ -54,19 +57,6 @@ class OtpPage extends StatelessWidget {
                 print("Completed : $pin");
               },
             ),
-            // Pinput(
-            //     length: 4,
-            //     defaultPinTheme: PinTheme(
-            //       width: 56,
-            //       height: 56,
-            //       textStyle: const TextStyle(fontSize: 20, color: Colors.black),
-            //       decoration: BoxDecoration(
-            //         borderRadius: BorderRadius.circular(10),
-            //         border: Border.all(color: Colors.grey),
-            //       ),
-            //     ),
-            //     onCompleted: (pin) => print("OTP entered: $pin"),
-            //   ),
             const SizedBox(
               height: 40,
             ),
@@ -102,16 +92,31 @@ class OtpPage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 24,
+              height: 20,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Re-send code in  ", style: TextStyle(fontSize: 12)),
-                Text(" 0:20",
-                    style: TextStyle(fontSize: 12, color: Colors.blue)),
-              ],
-            ),
+            Obx(() => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      otpController.isButtonEnabled.value
+                          ? ""
+                          : "Resend OTP in ${otpController.remainingSeconds.value}",
+                      style: const TextStyle(fontSize: 14, color: Colors.black),
+                    ),
+                    if (otpController.isButtonEnabled.value)
+                      TextButton(
+                        onPressed: otpController.isButtonEnabled.value
+                            ? () {
+                                otpController.resendCode();
+                              }
+                            : null,
+                        child: const Text(
+                          "Resend OTP",
+                          style: TextStyle(color: Color(0xff5669FF)),
+                        ),
+                      ),
+                  ],
+                )),
           ],
         ),
       ),

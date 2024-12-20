@@ -3,11 +3,12 @@ import 'package:bidvenchure_user/Pages/HomePage/HomePage.dart';
 import 'package:bidvenchure_user/Pages/HomePage/MapPage.dart';
 import 'package:bidvenchure_user/Pages/HomePage/ProfilePage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../Config/Colors.dart';
 
 class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
